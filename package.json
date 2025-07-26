@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Continuidade do estudo sobre automação de software utilizando o framework Playwright.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test --headed",
+    "test:ui": "playwright test --ui"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rafael18/Playwaright_Store.git"
