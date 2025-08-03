@@ -12,7 +12,7 @@ export class DeliveryDetails {
         this.contryInput = page.locator('[data-qa="country-dropdown"]')
         this.saveDetailsButton = page.locator('[data-qa="save-address-button"]')
         this.savedAddressContainer = page.locator('[data-qa="saved-address-container"]')
-        this.dataList = ['Tester', 'RbTester', 'Rua da Aurora', '50040090', 'Recife', 'Brazil']
+        this.continueToPaymentButton = page.locator('[data-qa="continue-to-payment-button"]')
     }
 
     fillDetails = async (userAddress) => {
@@ -41,5 +41,12 @@ export class DeliveryDetails {
         await this.saveDetailsButton.click()
         await this.savedAddressContainer.waitFor()
         await expect(this.savedAddressContainer).toHaveCount(addressCountBeforeButtonSaving + 1)
+        await this.savedAddressContainer.click()
     }
+
+    continueToPayment = async () => {
+        await this.continueToPaymentButton.waitFor()
+        await this.continueToPaymentButton.click()
+        await this.page.waitForURL(/\/payment/, { timeout: 3000 })
+    } 
 }

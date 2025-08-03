@@ -7,8 +7,10 @@ import { Checkout } from './../page-objects/Checkout'
 import { LoginPage } from './../page-objects/LoginPage'
 import { RegisterPage } from '../page-objects/RegisterPage'
 import { DeliveryDetails } from '../page-objects/DeliveryDetails'
+import { PaymentPage } from './../page-objects/PaymentPage'
 
 import { deliveryDetails as userAddress } from './../data/deliveryDetails'
+import { paymentDetails } from './../data/paymentDetails'
 
 test.only('New user full end-to-end test journey', async ({ page }) => {
     const productPage = new ProductsPage(page)
@@ -37,6 +39,12 @@ test.only('New user full end-to-end test journey', async ({ page }) => {
     const _deliveryDetails = new DeliveryDetails(page)
     await _deliveryDetails.fillDetails(userAddress)
     await _deliveryDetails.saveDetails()
+    await _deliveryDetails.continueToPayment()
+
+    const _paymentPage = new PaymentPage(page)
+    await _paymentPage.activateDiscount()
+    await _paymentPage.fillPaymentDetails(paymentDetails)
+    await _paymentPage.completePayment()
     
-    // await page.pause()
+    await page.pause()
 })
