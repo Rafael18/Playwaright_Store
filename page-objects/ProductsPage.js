@@ -39,6 +39,5 @@ export class ProductsPage {
         const productTitleAfterSorting = await this.productTitle.allInnerTexts()
 
         expect(productTitleAfterSorting).not.toEqual(productTitleBeforeSorting)
-        await this.page.pause()
     }
 }
