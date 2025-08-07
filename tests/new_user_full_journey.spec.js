@@ -46,5 +46,5 @@ test.only('New user full end-to-end test journey', async ({ page }) => {
     await _paymentPage.fillPaymentDetails(paymentDetails)
     await _paymentPage.completePayment()
     
-    await page.pause()
+    // await page.pause()
 })
