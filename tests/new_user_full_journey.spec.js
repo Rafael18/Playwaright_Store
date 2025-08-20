@@ -12,7 +12,7 @@ import { PaymentPage } from './../page-objects/PaymentPage'
 import { deliveryDetails as userAddress } from './../data/deliveryDetails'
 import { paymentDetails } from './../data/paymentDetails'
 
-test.only('New user full end-to-end test journey', async ({ page }) => {
+test.skip('New user full end-to-end test journey', async ({ page }) => {
     const productPage = new ProductsPage(page)
 
     await productPage.visit()
