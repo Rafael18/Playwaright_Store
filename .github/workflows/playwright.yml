@@ -18,6 +18,9 @@ jobs:
               with:
                 node-version: 22
 
+            - name: Dar permissão de execução para o binário
+              run: chmod +x ./shopping-store-linux-amd64
+              
             - name: Run tests
               run: |
                 echo "Start the shopping store application"
