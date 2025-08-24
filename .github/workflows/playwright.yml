@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Run Playwright Tests
 on:
     push:
         branches: [ main ]
@@ -10,13 +10,22 @@ jobs:
           env:
             ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+            - name: Checkout do repositório
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 22
+
             - name: Run tests
               run: |
                 echo "Start the shopping store application"
                 ./shopping-store-linux-amd64 &
+
                 echo "Install dependencies from lockfile"
                 npm ci
+
                 echo "Run playwright tests"
                 npm run test:ci
+
