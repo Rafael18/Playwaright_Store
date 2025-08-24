@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test --headed",
-    "test:ui": "playwright test --ui"
+    "test:ui": "playwright test --ui",
+    "test:ci": "playwright test"
   },
   "repository": {
     "type": "git",
