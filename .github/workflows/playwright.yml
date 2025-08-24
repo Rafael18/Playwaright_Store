@@ -26,6 +26,8 @@ jobs:
                 echo "Install dependencies from lockfile"
                 npm ci
 
-                echo "Run playwright tests"
-                npm run test:ci
-
+            - name: Instalar browsers do Playwright
+              run: npx playwright install --with-deps
+            
+            - name: Rodar testes
+              run: npm run test:ci
