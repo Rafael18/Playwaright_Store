@@ -3,12 +3,12 @@ on:
     push:
         branches: [ main ]
 jobs:
-    plawrighttests:
+    test:
         runs-on: ubuntu-latest
-        container:
-          image: mcr.microsoft.com/playwright:v1.54.1-focal
-          env:
-            ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+        env:
+          NODE_ENV: test
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          
         steps:
             - name: Checkout do repositório
               uses: actions/checkout@v4
