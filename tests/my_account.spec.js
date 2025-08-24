@@ -3,7 +3,7 @@ import { MyAccountPage } from '../page-objects/MyAccountPage'
 import { getLoginToken } from './../api-calls/getLoginToken'
 import { adminDetails } from './../data/userDetails'
 
-test.only('My Accoount using cookie injection and mocking network request', async ({ page }) => {
+test('My Accoount using cookie injection and mocking network request', async ({ page }) => {
     const loginToken = await getLoginToken(adminDetails.username, adminDetails.password)
 
     await page.route("**/api/user**", async (route, request) => {
